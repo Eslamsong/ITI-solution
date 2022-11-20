@@ -1,0 +1,158 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOP_Task_2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            Employee emp1 = new Employee(1353, "Jack", 39532.5);
+            Customer c = new Customer(8006445, 25, "Mark");
+            Person p = emp1;
+            p.print_data();
+
+             p = c;
+            p.print_data();
+
+            Console.ReadLine();
+
+        }
+    }
+
+}
+
+
+
+///////////////////
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOP_Task_2
+{
+     internal abstract class Person
+    {
+        protected int id;
+        protected string name;
+
+        public Person() 
+        {
+            id = 0;
+            name = "null";
+        }
+        public Person(int i,string s)
+        {
+            id = i; 
+            name = s;
+        }
+        public void set_id( int i)
+        {
+            this.id = i;
+        }
+
+        public void set_name(string s)
+        {
+            name = s;
+        }
+        public int get_id()
+        {
+            return id;
+        }
+        public string get_name()
+        {
+            return name;    
+        }
+        public abstract void print_data();
+    
+    }
+}
+
+///////
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOP_Task_2
+{
+    internal class Customer:Person
+    {
+        int account_no;
+
+        public Customer()
+        {
+            account_no = 0;
+        }
+        public Customer(int AN,int i,string s):base(i,s)
+        {
+            account_no = AN;
+        }
+
+        public void set_acc_num(int AN)
+        {
+            this.account_no = AN;
+        }
+        public int get_acc_num()
+        {
+            return account_no;
+        }
+        public override void print_data()
+        {
+            Console.WriteLine($"Customer Bank account is {account_no}  and  the Name is {name}  the ID is {id}");
+        }
+    }
+}
+////////////////
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOP_Task_2
+{
+    internal class Employee : Person
+    {
+        double salary;
+
+       public Employee()
+        {
+            salary=0;
+        }
+
+        public Employee (int i, string s,double m ) :base( i, s)
+        {
+            salary=m;
+        }
+
+        public void set_salary(double m)
+        {
+            salary = m;
+            
+        }
+        
+        public double get_salary()
+        {
+            return salary;
+        }
+
+        public override void print_data()
+        {
+            Console.WriteLine($"Emplyee ID is {id} Emplyee salary is {salary} and the name is {name}");
+        }
+    }
+
+}
+//////
+
