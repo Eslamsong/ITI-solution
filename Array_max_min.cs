@@ -53,6 +53,7 @@ namespace ITI
             }
             avg = sum / 5;
             Console.WriteLine($"the average of the five numbers is {avg}");
+            Console.WriteLine("this is a trial of the branch github");
             Console.ReadLine();
         }
     }
